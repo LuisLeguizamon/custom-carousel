@@ -33,6 +33,7 @@
             <img class="carousel-item" src="/image3.jpg" alt="">
         </div>
     </div>
+    <button id="prevBtn" style="font-size: 50px;">Prev</button>
     <button id="nextBtn" style="font-size: 50px;">Next</button>
 
     <script>
@@ -44,11 +45,20 @@
         const nextBtn = document.getElementById("nextBtn");
         nextBtn.addEventListener("click", function() {
             index = index + 1;
-            if (index == totalItems) {
+            if (index >= totalItems) {
                 index = 0;
             }
             offset = index * (-100);
-            console.log("🚀 ~ nextBtn.addEventListener ~ offset:", offset)
+            carouselContainer.style.transform = 'translateX(' + offset + '%)'
+        })
+
+        const prevBtn = document.getElementById("prevBtn");
+        prevBtn.addEventListener("click", function() {
+            index = index - 1;
+            if (index < 0) {
+                index = totalItems - 1;
+            }
+            offset = index * (-100);
             carouselContainer.style.transform = 'translateX(' + offset + '%)'
         })
     </script>
