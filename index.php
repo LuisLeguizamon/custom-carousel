@@ -8,6 +8,7 @@
     <style>
         .carousel {
             display: flex;
+            position: relative;
             overflow: hidden;
             width: 500px;
             height: 300px;
@@ -22,6 +23,24 @@
             min-width: 100%;
             box-sizing: border-box;
         }
+
+        .carousel-buttons {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            display: flex;
+            width: 100%;
+            justify-content: space-between;
+        }
+
+        #prevBtn,
+        #nextBtn {
+            font-size: 20px;
+            background-color: transparent;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
     </style>
 </head>
 
@@ -32,9 +51,11 @@
             <img class="carousel-item" src="/image2.jpg" alt="">
             <img class="carousel-item" src="/image3.jpg" alt="">
         </div>
+        <div class="carousel-buttons">
+            <button id="prevBtn">Prev</button>
+            <button id="nextBtn">Next</button>
+        </div>
     </div>
-    <button id="prevBtn" style="font-size: 50px;">Prev</button>
-    <button id="nextBtn" style="font-size: 50px;">Next</button>
 
     <script>
         const carouselContainer = document.getElementById("carouselContainer")
