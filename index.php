@@ -17,6 +17,7 @@
 
         .carousel-container {
             display: flex;
+            transition: all 0.5s ease;
         }
 
         .carousel-item {
