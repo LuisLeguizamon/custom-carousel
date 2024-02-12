@@ -51,6 +51,9 @@
 </head>
 
 <body>
+    <?php
+        $autoSlide = true;
+    ?>
     <div class="carousel">
         <div id="carouselContainer" class="carousel-container">
             <img class="carousel-item" src="/image1.jpg" alt="">
@@ -79,12 +82,7 @@
 
         const nextBtn = document.getElementById("nextBtn");
         nextBtn.addEventListener("click", function() {
-            index = index + 1;
-            if (index >= totalItems) {
-                index = 0;
-            }
-            offset = index * (-100);
-            carouselContainer.style.transform = 'translateX(' + offset + '%)'
+            nextSlide();
         })
 
         const prevBtn = document.getElementById("prevBtn");
@@ -96,6 +94,22 @@
             offset = index * (-100);
             carouselContainer.style.transform = 'translateX(' + offset + '%)'
         })
+
+        function nextSlide()
+        {
+            index = index + 1;
+            if (index >= totalItems) {
+                index = 0;
+            }
+            offset = index * (-100);
+            carouselContainer.style.transform = 'translateX(' + offset + '%)'
+        }
+
+        <?php
+            if ($autoSlide) {
+                echo("setInterval(nextSlide, 3000)");
+            }
+        ?>
     </script>
 
 </body>
