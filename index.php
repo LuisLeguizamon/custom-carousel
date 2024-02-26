@@ -54,12 +54,18 @@
 <body>
     <?php
         $autoSlide = true;
+        $imagesSrc = [
+            '/image1.jpg',
+            '/image2.jpg',
+            '/image3.jpg',
+        ];
     ?>
     <div class="carousel">
         <div id="carouselContainer" class="carousel-container">
-            <img class="carousel-item" src="/image1.jpg" alt="">
-            <img class="carousel-item" src="/image2.jpg" alt="">
-            <img class="carousel-item" src="/image3.jpg" alt="">
+            <?php foreach ($imagesSrc as $imgSrc) {
+                echo "<img class='carousel-item' src=$imgSrc alt=''>";
+            }
+            ?>
         </div>
         <div class="carousel-buttons">
             <button id="prevBtn">
